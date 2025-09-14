@@ -19,12 +19,10 @@ Welcome! 🎉 This is your all-in-one **Personal Budget Tracker** app that helps
 ## 📂 Project Structure at a Glance
 
 personal-budget-tracker/
+
 ├── backend/              # Server-side code (Node.js + Express)
-
 │   ├── server.js        # Main backend server file
-
 │   ├── db.js            # MongoDB connection configuration
-
 │   ├── data.json       # Local sample or data file
 
 │   ├── package.json    # Backend dependencies and scripts
