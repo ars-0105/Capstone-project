@@ -140,15 +140,4 @@ The frontend connects seamlessly with the backend through API requests. Once you
 
 ---
 
-## 🤝 Contributing
-
-We love contributions! If you want to improve this app, feel free to:
-
-1. Fork the project  
-2. Create a new feature branch  
-3. Make your improvements and test them  
-4. Open a pull request with details of the changes  
-
----
-
 Thank you for using the **Personal Budget Tracker**! 💖 Let's make managing finances simple and stress-free! 📈✨
