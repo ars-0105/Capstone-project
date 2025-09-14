@@ -1,0 +1,151 @@
+
+# 📊 Personal Budget Tracker
+
+Welcome! 🎉 This is your all-in-one **Personal Budget Tracker** app that helps you manage your finances easily. Whether you want to track income, expenses, budgets, or group contributions, this app has got you covered with a simple and intuitive interface powered by modern technologies like **Node.js**, **Express**, **React**, and **MongoDB**.
+
+---
+
+## 🚀 Features You'll Love
+
+✔ Track your income and expenses by category  
+✔ Set and manage budgets for each category  
+✔ Create groups, manage members, and track contributions  
+✔ Edit or delete transactions effortlessly  
+✔ Real-time validations to keep your spending in check  
+✔ Responsive UI that works beautifully on all devices  
+
+---
+
+## 📂 Project Structure at a Glance
+
+```
+personal-budget-tracker/
+├── backend/              # Server-side code (Node.js + Express)
+├── frontend/             # Client-side code (React + Vite)
+└── README.md             # This file you're reading!
+```
+
+---
+
+## 🛠 Tech Stack
+
+- **Backend:** Node.js, Express.js, MongoDB  
+- **Frontend:** React, Vite  
+- **Styling:** CSS  
+- **Package Management:** npm  
+
+---
+
+## 📥 Getting Started (Setup Guide)
+
+### ✅ Prerequisites
+
+Before we begin, make sure you have:
+
+- [Node.js](https://nodejs.org/) installed  
+- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)  
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or a local MongoDB setup  
+
+---
+
+### 🔧 Step 1 – Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd personal-budget-tracker
+```
+
+---
+
+### 🔧 Step 2 – Set up the Backend
+
+1. Move to the backend folder:
+
+   ```bash
+   cd backend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure your MongoDB connection:
+
+   - Open `db.js`
+   - Replace the connection string with your MongoDB URI:
+
+   ```javascript
+   const uri = "mongodb+srv://<username>:<password>@cluster.mongodb.net/<your-database>?retryWrites=true&w=majority";
+   ```
+
+4. Start the server:
+
+   ```bash
+   node server.js
+   ```
+
+   The backend will now be running on **http://localhost:5000**.
+
+---
+
+### 🔧 Step 3 – Set up the Frontend
+
+1. Open a new terminal window and navigate to the frontend folder:
+
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the frontend:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open the link in your browser (usually `http://localhost:5173`) and start managing your finances!
+
+---
+
+## 🔗 How It Works
+
+The frontend connects seamlessly with the backend through API requests. Once you've set up your database, you can start adding transactions, creating groups, managing members, and tracking budgets — all with instant feedback and validations.
+
+---
+
+## 📦 Available Commands
+
+| Command             | Directory | What it does                  |
+|-------------------|-----------|------------------------------|
+| `npm install`     | backend   | Install server dependencies  |
+| `node server.js`  | backend   | Run the backend server      |
+| `npm install`     | frontend  | Install client dependencies  |
+| `npm run dev`     | frontend  | Run the development server   |
+
+---
+
+## 🤝 Contributing
+
+We love contributions! If you want to improve this app, feel free to:
+
+1. Fork the project  
+2. Create a new feature branch  
+3. Make your improvements and test them  
+4. Open a pull request with details of the changes  
+
+---
+
+## 📬 Need Help or Have Suggestions?
+
+Feel free to raise issues, open discussions, or contact the project maintainer through GitHub. We're always happy to hear your feedback and improve the app.
+
+---
+
+Thank you for using the **Personal Budget Tracker**! 💖 Let's make managing finances simple and stress-free! 📈✨
