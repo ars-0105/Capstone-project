@@ -18,12 +18,21 @@ Welcome! 🎉 This is your all-in-one **Personal Budget Tracker** app that helps
 
 ## 📂 Project Structure at a Glance
 
-```
 personal-budget-tracker/
-├── backend/              # Server-side code (Node.js + Express)
-├── frontend/             # Client-side code (React + Vite)
-└── README.md             # This file you're reading!
-```
+├── backend/              # Node.js backend API
+│   ├── server.js        # Main server file
+│   ├── db.js            # Database connection (MongoDB)
+│   ├── data.json       # Local sample or data file
+│   ├── package.json    # Backend dependencies
+│   └── ...
+├── frontend/            # React frontend using Vite
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json    # Frontend dependencies
+│   ├── src/            # React source files
+│   └── ...
+└── README.md            # Project setup and instructions
+
 
 ---
 
