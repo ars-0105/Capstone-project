@@ -142,10 +142,4 @@ We love contributions! If you want to improve this app, feel free to:
 
 ---
 
-## 📬 Need Help or Have Suggestions?
-
-Feel free to raise issues, open discussions, or contact the project maintainer through GitHub. We're always happy to hear your feedback and improve the app.
-
----
-
 Thank you for using the **Personal Budget Tracker**! 💖 Let's make managing finances simple and stress-free! 📈✨
