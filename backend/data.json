@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "id": "bdc48987-9acf-4c5d-b35a-ef6af554c7bf",
+      "name": "aadio",
+      "email": "raj@gmail.com",
+      "password": "raj@1234",
+      "currency": "EUR"
+    },
+    {
+      "id": "ead45952-85fd-4f64-92f6-7d9b6ee4ca96",
+      "name": "aad",
+      "email": "aaa@gmail.com",
+      "password": "ahsju",
+      "currency": "INR"
+    },
+    {
+      "id": "69f2a359-b8f0-47f4-904c-49dc5bd16f41",
+      "name": "aaaaa",
+      "email": "aaaaaaaaa",
+      "password": "dfsffsdf",
+      "currency": "INR"
+    },
+    {
+      "id": "c63db631-8728-4678-8ad7-739d348eb6de",
+      "name": "dfsdf",
+      "email": "dsfdsfsd",
+      "password": "dsfdsf",
+      "currency": "INR"
+    },
+    {
+      "id": "bbc74d78-3443-48c5-a5a8-f8ca4cfa15b9",
+      "name": "fyf",
+      "email": "dtud",
+      "password": "yifudf",
+      "currency": "INR"
+    },
+    {
+      "id": "61c1415c-4305-46b1-9baf-e8b0ea82c15a",
+      "name": "jgfg",
+      "email": "yfyfiy",
+      "password": "hhhkk",
+      "currency": "INR"
+    },
+    {
+      "id": "ab2abaa6-aad0-4570-9d59-974f732cada5",
+      "name": "aadi",
+      "email": "aadi@gmail.com",
+      "password": "aadi@1234",
+      "currency": "INR"
+    }
+  ],
+  "settings": {
+    "currencies": [
+      "INR",
+      "USD",
+      "EUR",
+      "GBP",
+      "JPY"
+    ]
+  },
+  "transactions": [
+    {
+      "id": "1473f00f-a077-4236-b75c-227724055016",
+      "amount": 599,
+      "type": "expense",
+      "category": "car",
+      "date": "2025-05-01",
+      "notes": "",
+      "userId": "ead45952-85fd-4f64-92f6-7d9b6ee4ca96"
+    },
+    {
+      "id": "c151fb8a-97cf-4f44-a80d-d380bf898add",
+      "amount": 500,
+      "type": "expense",
+      "category": "car",
+      "date": "2025-05-02",
+      "notes": "",
+      "userId": "ead45952-85fd-4f64-92f6-7d9b6ee4ca96"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "358bd1da-a232-4aa8-8781-c9568e7f5ffd",
+      "category": "car ",
+      "month": "2025-05",
+      "limit": 1000,
+      "userId": "ead45952-85fd-4f64-92f6-7d9b6ee4ca96"
+    }
+  ],
+  "groups": [
+    {
+      "id": "5bdd3dc6-ccd0-42a0-9a17-2e8788b2e589",
+      "name": "cr",
+      "members": [
+        {
+          "id": "61c1415c-4305-46b1-9baf-e8b0ea82c15a",
+          "name": "61c1415c-4305-46b1-9baf-e8b0ea82c15a",
+          "contribution": 0
+        }
+      ]
+    }
+  ],
+  "settlements": []
+}
