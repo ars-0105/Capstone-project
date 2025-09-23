@@ -119,7 +119,7 @@ cd personal-budget-tracker
    npm run dev
    ```
 
-4. Open the link in your browser (usually `http://localhost:5173`) and start managing your finances!
+4. Open the link in your browser which will be shown in terminal use ctrl key to follow the link while clicking
 
 ---
 
