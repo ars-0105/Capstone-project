@@ -1,7 +1,7 @@
 
 # 📊 Personal Budget Tracker
 
-Welcome! 🎉 This is your all-in-one **Personal Budget Tracker** app that helps you manage your finances easily. Whether you want to track income, expenses, budgets, or group contributions, this app has got you covered with a simple and intuitive interface powered by modern technologies like **Node.js**, **Express**, **React**, and **MongoDB**.
+Welcome! 🎉 This is your all-in-one **Personal Budget Tracker** website that helps you manage your finances easily. Whether you want to track income, expenses, budgets, or group contributions, this website has got you covered with a simple and intuitive interface powered by modern technologies like **Node.js**, **Express**, **React**, and **MongoDB**.
 
 ---
 
@@ -12,7 +12,7 @@ Welcome! 🎉 This is your all-in-one **Personal Budget Tracker** app that helps
 ✔ Create groups, manage members, and track contributions  
 ✔ Edit or delete transactions effortlessly  
 ✔ Real-time validations to keep your spending in check  
-✔ Responsive UI that works beautifully on all devices  
+✔ Responsive UI that works beautifully on desktop and laptops  
 
 ---
 
