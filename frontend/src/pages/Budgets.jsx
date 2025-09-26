@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../api';
+const currencyMap = { INR: "₹", USD: "$", EUR: "€", GBP: "£", JPY: "¥" };
+function currencySymbol(code) {
+  return currencyMap[code] || code;
+}
 
 export default function Budgets({ user }) {
   const [list, setList] = useState([]);
@@ -112,7 +116,7 @@ export default function Budgets({ user }) {
                   <div style={{ paddingLeft: '10px' }}>
                     <div><strong>Category:</strong> {b.category || "N/A"}</div>
                     <div><strong>Month:</strong> {monthLabel}</div>
-                    <div><strong>Limit:</strong> ₹{b.limit}</div>
+                    <div><strong>Limit:</strong> {currencySymbol(user.currency)} {b.limit}</div>
                   </div>
                   <button
                     className="icon-delete"
