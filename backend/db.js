@@ -2,14 +2,15 @@ import mongoose from "mongoose";
 
 export async function connectDB() {
   try {
-    await mongoose.connect("mongodb+srv://aadityaraj1473_db_user:Aadi1234@budgettracker.lqytqaf.mongodb.net/budgettracker?retryWrites=true&w=majority&appName=BudgetTracker");
+    await mongoose.connect(
+      "mongodb+srv://aadityaraj1473_db_user:Aadi1234@budgettracker.lqytqaf.mongodb.net/budgettracker?retryWrites=true&w=majority&appName=BudgetTracker"
+    );
     console.log("✅ MongoDB connected");
-    console.log("Connected to DB:", mongoose.connection.name); 
+    console.log("Connected to DB:", mongoose.connection.name);
   } catch (err) {
     console.error("❌ MongoDB connection error:", err.message);
   }
 }
-
 
 // --- Schemas ---
 const userSchema = new mongoose.Schema({
@@ -32,13 +33,14 @@ const transactionSchema = new mongoose.Schema({
 const budgetSchema = new mongoose.Schema({
   id: String,
   userId: String,
-  category: String,  
+  category: String,
   month: String,
   limit: Number,
 });
 
 const groupSchema = new mongoose.Schema({
   id: String,
+  userId: String, // Groups now linked to a specific user
   name: String,
   members: [
     {
