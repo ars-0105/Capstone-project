@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../api";
 
+const currencyMap = { INR: "₹", USD: "$", EUR: "€", GBP: "£", JPY: "¥" };
+function currencySymbol(code) {
+  return currencyMap[code] || code;
+}
+
 export default function Groups({ user }) {
   const [groups, setGroups] = useState([]);
   const [name, setName] = useState("");
@@ -10,9 +15,9 @@ export default function Groups({ user }) {
   const [editName, setEditName] = useState("");
   const [editMembers, setEditMembers] = useState([]);
 
-  // Load all groups
+  // Load groups for the logged-in user
   async function load() {
-    const { data } = await api.get("/groups");
+    const { data } = await api.get("/groups", { params: { userId: user.id } });
     setGroups(data);
   }
 
@@ -24,8 +29,10 @@ export default function Groups({ user }) {
   async function createGroup(e) {
     e.preventDefault();
     if (!name.trim()) return;
+
     const newGroup = {
       name,
+      userId: user.id, // <-- store user ID
       members: [],
     };
     await api.post("/groups", newGroup);
@@ -81,19 +88,24 @@ export default function Groups({ user }) {
     e.preventDefault();
     await api.put(`/groups/${editing.id}`, {
       name: editName,
-      members: editMembers.map(m => ({
-        id: m.id,
-        name: m.name.trim(),
-        contribution: Number(m.contribution) || 0
-      })).filter(m => m.name !== ""),
+      members: editMembers
+        .map(m => ({
+          id: m.id,
+          name: m.name.trim(),
+          contribution: Number(m.contribution) || 0,
+        }))
+        .filter(m => m.name !== ""),
+      userId: user.id, // ensure userId is preserved
     });
     setEditing(null);
     setSelectedGroup(null);
     await load();
   }
 
-  // Calculate total contribution
-  const totalContribution = editMembers.reduce((sum, m) => sum + (Number(m.contribution) || 0), 0);
+  const totalContribution = editMembers.reduce(
+    (sum, m) => sum + (Number(m.contribution) || 0),
+    0
+  );
 
   return (
     <div style={{ display: "flex", gap: "20px", alignItems: "flex-start" }}>
@@ -113,7 +125,16 @@ export default function Groups({ user }) {
 
         <ul className="list" style={{ marginTop: 0 }}>
           {groups.map((group) => (
-            <li key={group.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: '8px 0', borderBottom: '1px solid #444' }}>
+            <li
+              key={group.id}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "8px 0",
+                borderBottom: "1px solid #444",
+              }}
+            >
               <span
                 className="group-name"
                 style={{ cursor: "pointer" }}
@@ -122,8 +143,12 @@ export default function Groups({ user }) {
                 {group.name}
               </span>
               <div style={{ display: "flex", gap: "8px" }}>
-                <button className="icon-pencil" onClick={() => startEdit(group)} title="Edit">✏</button>
-                <button className="icon-delete" onClick={() => remove(group.id)} title="Delete">✖</button>
+                <button className="icon-pencil" onClick={() => startEdit(group)} title="Edit">
+                  ✏
+                </button>
+                <button className="icon-delete" onClick={() => remove(group.id)} title="Delete">
+                  ✖
+                </button>
               </div>
             </li>
           ))}
@@ -147,7 +172,15 @@ export default function Groups({ user }) {
             <div style={{ marginBottom: 10 }}>
               <label>Members</label>
               {editMembers.map((m, index) => (
-                <div key={m.id} style={{ display: "flex", gap: "8px", marginBottom: "6px", alignItems: "center" }}>
+                <div
+                  key={m.id}
+                  style={{
+                    display: "flex",
+                    gap: "8px",
+                    marginBottom: "6px",
+                    alignItems: "center",
+                  }}
+                >
                   <input
                     className="input"
                     placeholder="Name"
@@ -173,23 +206,43 @@ export default function Groups({ user }) {
                   </button>
                 </div>
               ))}
-              <button type="button" className="button" onClick={addMember}>Add Member</button>
+              <button type="button" className="button" onClick={addMember}>
+                Add Member
+              </button>
             </div>
             <div style={{ marginBottom: 10 }}>
-              <strong>Total Contribution: ₹{totalContribution}</strong>
+              <strong>
+                Total Contribution: {currencySymbol(user.currency)} {totalContribution}
+              </strong>
             </div>
-            <button className="button" type="submit">Save</button>
+            <button className="button" type="submit">
+              Save
+            </button>
           </form>
         ) : selectedGroup ? (
           <div>
-            <p><strong>Group Name:</strong> {selectedGroup.name}</p>
-            <p><strong>Total Members:</strong> {selectedGroup.members.filter(m => m.name.trim() !== "").length}</p>
-            <p><strong>Total Contribution:</strong> ₹{selectedGroup.members.reduce((sum, m) => sum + (Number(m.contribution) || 0), 0)}</p>
-            <p><strong>Members:</strong></p>
+            <p>
+              <strong>Group Name:</strong> {selectedGroup.name}
+            </p>
+            <p>
+              <strong>Total Members:</strong>{" "}
+              {selectedGroup.members.filter((m) => m.name.trim() !== "").length}
+            </p>
+            <p>
+              <strong>Total Contribution:</strong>{" "}
+              {currencySymbol(user.currency)}{" "}
+              {selectedGroup.members.reduce(
+                (sum, m) => sum + (Number(m.contribution) || 0),
+                0
+              )}
+            </p>
+            <p>
+              <strong>Members:</strong>
+            </p>
             <ul>
               {selectedGroup.members
-                .filter(m => m.name.trim() !== "")
-                .map(m => (
+                .filter((m) => m.name.trim() !== "")
+                .map((m) => (
                   <li key={m.id}>{m.name}</li>
                 ))}
             </ul>
