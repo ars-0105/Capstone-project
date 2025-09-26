@@ -10,32 +10,30 @@ export default function Login({ onLogin }) {
   const [error, setError] = useState("");
 
   async function submit(e) {
-    e.preventDefault();
-    setError("");
+  e.preventDefault();
+  setError("");
 
-    if (!email || !password) {
-      setError("Please enter both email and password.");
-      return;
-    }
-
-    try {
-      const { data } = await api.post("/auth/login", { email, password });
-      const userData = data.user;
-      localStorage.setItem("user", JSON.stringify(userData));
-      onLogin(userData);
-    } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
-    }
+  // basic validation
+  if (!email || !password) {
+    setError("Please enter both email and password.");
+    return;
   }
+
+  try {
+    const { data } = await api.post("/auth/login", { email, password });
+    const userData = data.user;
+    localStorage.setItem('user', JSON.stringify(userData)); // ✅ Persist user in localStorage
+    onLogin(userData); // ✅ Update state in App.jsx
+  } catch (err) {
+    setError(err.response?.data?.message || "Login failed");
+  }
+}
+
 
   return (
     <div className="center-page">
-      {/* Logo outside the login box */}
-      <div className="logo-outside">💸 Budget Tracker</div>
-
       <div className="auth-card">
         <h1 className="title">Welcome back 👋</h1>
-
         <form onSubmit={submit}>
           <input
             className="input"
@@ -44,6 +42,7 @@ export default function Login({ onLogin }) {
             onChange={(e) => setEmail(e.target.value)}
           />
 
+          {/* password with eye-toggle */}
           <div style={{ position: "relative" }}>
             <input
               className="input"
@@ -76,6 +75,7 @@ export default function Login({ onLogin }) {
           </button>
         </form>
 
+        {/* error feedback */}
         {error && (
           <p style={{ color: "salmon", marginTop: "0.5rem" }}>{error}</p>
         )}
